@@ -1,6 +1,6 @@
 # Ansible Role: gifsicle
 
-[![Build Status](https://travis-ci.org/maztch/ansible-role-gifsicle.svg?branch=master)](https://travis-ci.org/maztch/ansible-role-gifsicle)
+[![Build Status](https://travis-ci.com/maztch/ansible-role-gifsicle.svg?branch=master)](https://travis-ci.com/maztch/ansible-role-gifsicle)
 
 Installs gifsicle from source, on RedHat/CentOS and Debian/Ubuntu servers.
 

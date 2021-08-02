@@ -14,7 +14,6 @@
       - autoconf
     state: present
     update_cache: yes
-    upgrade: yes
   when: ansible_os_family == 'Debian'
 
 - name: download gifsicle source

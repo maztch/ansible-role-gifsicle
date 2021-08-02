@@ -1,0 +1,28 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: maztch
+  company: maztch
+  description: Installs gifsicle
+  license: MIT
+  min_ansible_version: 1.2
+  version: 1.0.0
+  github_branch: release
+  platforms:
+    - name: Debian
+      versions:
+      - jessie
+      - wheezy
+    - name: EL
+      versions:
+      - 6
+      - 7
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+        - xenial
+  galaxy_tags:
+    - system
+    - application

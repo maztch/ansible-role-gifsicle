@@ -1,0 +1,9 @@
+---
+
+#gifsicle version
+gifsicle_version: '1.10'
+
+#./configure options for gifsicle
+gifsicle_options:
+  - --disable-gifview
+  - --disable-gifdiff

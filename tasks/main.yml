@@ -1,0 +1,49 @@
+---
+- name: install packages for building gifsicle
+  yum: name={{ item }} state=present
+  when: ansible_os_family == 'RedHat'
+  with_items:
+    - "@Development tools"
+    - automake
+
+- name: install packages for building gifsicle
+  apt: name={{ item }} state=present
+  update_cache: yes
+  upgrade: yes
+  when: ansible_os_family == 'Debian'
+  with_items:
+    - build-essential
+    - autoconf
+
+- name: download gifsicle source
+  get_url:
+    url: "https://github.com/kohler/gifsicle/archive/{{ gifsicle_version }}.tar.gz"
+    dest: /opt/gifsicle-{{ gifsicle_version }}.tar.gz
+
+- name: Extract gifsicle
+  unarchive:
+    src: "/opt/gifsicle-{{ gifsicle_version }}.tar.gz"
+    dest: /opt
+    remote_src: yes
+
+- name: make configure gifsicle
+  shell: "autoreconf -i"
+  args:
+    chdir: "/opt/gifsicle-{{ gifsicle_version }}/"
+
+- name: configure gifsicle
+  command: ./configure {{ gifsicle_options|join(' ') }}
+  args:
+    chdir: "/opt/gifsicle-{{ gifsicle_version }}/"
+    
+
+- name: build gifsicle
+  command: make
+  args:
+    chdir: "/opt/gifsicle-{{ gifsicle_version }}/"
+
+- name: install gifsicle
+  command: make install
+  args:
+    chdir: "/opt/gifsicle-{{ gifsicle_version }}/"
+  

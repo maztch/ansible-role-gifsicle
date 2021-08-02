@@ -1,7 +1,7 @@
 ---
 
 #gifsicle version
-gifsicle_version: '1.10'
+gifsicle_version: '1.93'
 
 #./configure options for gifsicle
 gifsicle_options:

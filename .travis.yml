@@ -6,7 +6,7 @@ env:
   - distro: centos7
     playbook: test.yml
     GIFSICLE_VERSION: 1.93
-  - distro: xenial
+  - distro: ubuntu1604
     playbook: test.yml
     GIFSICLE_VERSION: 1.93
   - distro: debian8

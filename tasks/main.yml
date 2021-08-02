@@ -1,11 +1,17 @@
 ---
 - name: install packages for building gifsicle
-  yum: name=['@Development tools', 'automake'] state=present
+  yum: name={{ item }} state=present
   when: ansible_os_family == 'RedHat'
+  with_items:
+    - "@Development tools"
+    - automake
 
 - name: install packages for building gifsicle
-  apt: name=['build-essential', 'autoconf'] state=present
+  apt: name={{ item }} state=present
   when: ansible_os_family == 'Debian'
+  with_items:
+    - build-essential
+    - autoconf
 
 - name: download gifsicle source
   get_url:
